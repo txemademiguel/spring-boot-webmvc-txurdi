@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Spring Boot Thymeleaf Ejemplo Hola</title>
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css} " />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#">fptxurdinaga.com</a>
+	</nav>
+	<main role="main" class="container">
+		<nav>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/mvchola">MVCHola</a></li>
+				<li><a href="/parametros">Parametros</a></li>
+			</ul>
+		</nav>
+		<main role="main" class="container">
+			<div class="starter-template">
+				<h1>Spring Boot Web Thymeleaf Ejemplo</h1>
+				<h2>
+					<span th:text="${cadena}"></span>
+				</h2>
+				<h2>
+					<p th:text="'Hola, ' + ${message}"></p>
+				</h2>
+			</div>
+			<h1>Estructuras Repetitivas en Thymeleaf</h1>
+			<ol>
+				<li th:each="lstElementos:${lstElementos}" th:text="${lstElementos}"></li>
+			</ol>
+		</main>
+		<!-- /.container -->
+		<script type="text/javascript" th:src="@{webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>
