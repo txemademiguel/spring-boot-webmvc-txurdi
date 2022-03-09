@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/phones">Volver</a></li>
+        <li><a href="/phones/insert">Inserta</a></li>
+        <li><a href="/phones/show/2">Show by ID</a></li>
+        <li><a href="/phones/update/2">Update by ID</a></li>
+        <li><a href="/phones/delete/2">Delete by ID</a></li>
+    </ul>
+</nav>
+<table>
+    <tr th:each="phone: ${phones}">
+        <td th:text="${phone.id}" />
+        <td th:text="${phone.number}" />
+        <td th:text="${phone.details.provider}" />
+    </tr>
+</table>
+</body>
+</html>

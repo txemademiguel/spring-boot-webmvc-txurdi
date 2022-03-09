@@ -1,0 +1,16 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/phones">Volver</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td th:text="${phone.id}" />
+        <td th:text="${phone.number}" />
+        <td th:text="${phone.details?.getProvider()}" />
+    </tr>
+</table>
+</body>
+</html>

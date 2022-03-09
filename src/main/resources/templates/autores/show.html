@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/autores">Volver</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td th:text="${autor.id}" />
+        <td th:text="${autor.nombre}" />
+        <td th:text="${autor.libros?.size()}" />
+        <table>
+            <tr th:each="libro: ${autor.libros}">
+                <td th:text="${libro.id}" />
+                <td th:text="${libro.title}" />
+                <!--td th:text="${phone.details.provider}" /-->
+            </tr>
+        </table>
+    </tr>
+</table>
+</body>
+</html>

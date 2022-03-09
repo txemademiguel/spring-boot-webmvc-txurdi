@@ -1,4 +1,4 @@
-package domain;
+package com.fptxurdinaga.springbootmvc.domain;
 
 import javax.validation.constraints.Size;
 

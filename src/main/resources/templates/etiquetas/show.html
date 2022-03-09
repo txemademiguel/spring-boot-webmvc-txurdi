@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/etiquetas">Volver</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td th:text="${etiqueta.id}" />
+        <td th:text="${etiqueta.nombre}" />
+        <td th:text="${etiqueta.noticias?.size()}" />
+        <table>
+            <tr th:each="noticia: ${etiqueta.noticias}">
+                <td th:text="${noticia.id}" />
+                <td th:text="${noticia.titular}" />
+            </tr>
+        </table>
+    </tr>
+</table>
+</body>
+</html>

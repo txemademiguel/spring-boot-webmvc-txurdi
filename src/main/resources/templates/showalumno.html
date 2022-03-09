@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/jpa">Volver</a></li>
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td th:text="${alumno.id}" />
+        <td th:text="${alumno.nombre}" />
+        <td th:text="${alumno.apellidos}" />
+        <td th:text="${alumno.edad}" />
+    </tr>
+</table>
+</body>
+</html>

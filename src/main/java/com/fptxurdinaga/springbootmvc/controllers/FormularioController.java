@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import domain.Persona;
+import com.fptxurdinaga.springbootmvc.domain.Persona;
 
 import javax.validation.Valid;
 

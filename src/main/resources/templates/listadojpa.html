@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/jpa">Volver</a></li>
+        <li><a href="/jpa/insert">Inserta</a></li>
+        <li><a href="/jpa/show/1">Show by ID</a></li>
+        <li><a href="/jpa/update/1">Update by ID</a></li>
+        <li><a href="/jpa/delete/1">Delete by ID</a></li>
+    </ul>
+</nav>
+<table>
+    <tr th:each="alumno: ${alumnos}">
+        <td th:text="${alumno.id}" />
+        <td th:text="${alumno.nombre}" />
+        <td th:text="${alumno.apellidos}" />
+        <td th:text="${alumno.edad}" />
+    </tr>
+</table>
+</body>
+</html>

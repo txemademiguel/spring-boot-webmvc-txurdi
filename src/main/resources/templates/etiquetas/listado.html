@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/etiquetas">Volver</a></li>
+        <li><a href="/etiquetas/insert">Inserta</a></li>
+        <li><a href="/etiquetas/show/1">Show by ID</a></li>
+        <li><a href="/etiquetas/update/1">Update by ID</a></li>
+        <li><a href="/etiquetas/delete/1">Delete by ID</a></li>
+    </ul>
+</nav>
+<table>
+    <tr th:each="etiqueta: ${etiquetas}">
+        <td th:text="${etiqueta.id}" />
+        <td th:text="${etiqueta.nombre}" />
+        <!--td th:text="${phone.details.provider}" /-->
+    </tr>
+</table>
+</body>
+</html>
