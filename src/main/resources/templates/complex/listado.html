@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav>
+    <ul>
+        <li><a href="/complex">Volver</a></li>
+        <li><a href="/complex/insertar">Insertar Datos</a></li>
+        <li><a href="/complex/borrar">Borrar Datos</a></li>
+    </ul>
+</nav>
+<h1>Listado Users</h1>
+<table border=1>
+    <tr th:each="user: ${listado}">
+        <td th:text="${user.id}" />
+        <td th:text="${user.username}" />
+        <td th:text="${user.userGroups?.size()}" />
+        <table>
+            <tr th:each="usergroup: ${user.userGroups}">
+                <td th:text="${usergroup.id}" />
+                <td th:text="${usergroup.user}" />
+				<td th:text="${usergroup.group}" />
+				<td th:text="${usergroup.activated}" />
+				<td th:text="${usergroup.registeredDate}" />
+            </tr>
+        </table>
+    </tr>
+</table>
+</body>
+</html>
