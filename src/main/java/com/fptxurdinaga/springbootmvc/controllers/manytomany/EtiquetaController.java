@@ -75,7 +75,6 @@ public class EtiquetaController {
             modelo.addAttribute("etiqueta", new Etiqueta());
         }
         return "etiquetas/show";
-
     }
 
     @GetMapping("/delete/{id}")

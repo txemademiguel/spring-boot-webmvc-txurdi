@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fptxurdinaga.springbootmvc.domain.Alumno;
 import com.fptxurdinaga.springbootmvc.repositories.AlumnoRepository;
+import com.fptxurdinaga.springbootmvc.services.AlumnoService;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -96,5 +98,52 @@ public class JpaController {
         return "showalumno";
 
     }
+    
+    @GetMapping("/mayoresedad")
+    public String search(Model modelo) {
+        Collection<Alumno> listado = this.alumnoRepository.findAllMayoresEdad();
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
+    
+    @GetMapping("/search/by/{name}")
+    public String searchByNombre(Model modelo, @PathVariable("name")String nombre) {
+     List<Alumno> listado = this.alumnoRepository.findByNombre(nombre);
+     modelo.addAttribute("alumnos", listado);
+     return "listadojpa";
+    }
+    
+    @GetMapping("/search/mayoresbynombre/{nombre}/{edad}")
+    public String searchMayoresByNombre(
+            Model modelo,
+            @PathVariable("nombre")String nombre,
+            @PathVariable("edad")Integer edad) {
+        Collection<Alumno> listado = this.alumnoRepository.findAlumnosMayoresEdadByNombre(nombre,edad);
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
 
+    @Autowired
+    private AlumnoService alumnoService;
+    @GetMapping("/search/first/mayoresbynombre/{nombre}/{edad}")
+    public String searchFirstByCosas(
+            Model modelo,
+            @PathVariable("nombre")String nombre,
+            @PathVariable("edad")Integer edad) {
+        Alumno alumno = this.alumnoService.getFirstByCosas(nombre,edad);
+        modelo.addAttribute("alumno", alumno);
+        return "showalumno";
+    }
+    
+    @GetMapping("/search/by/{name}/{apellidos}")
+    public String searchByNombreAndApellido(
+            Model modelo,
+            @PathVariable("name")String nombre,
+            @PathVariable("apellidos")String apellidos
+    ) {
+        List<Alumno> listado = this.alumnoRepository
+                .findByNombreAndApellidos(nombre, apellidos);
+        modelo.addAttribute("alumnos", listado);
+        return "listadojpa";
+    }
 }
